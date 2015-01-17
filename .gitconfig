@@ -161,3 +161,7 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[user]
+	name = Kalle Aaltonen
+	email = kalle.aaltonen@gmail.com
