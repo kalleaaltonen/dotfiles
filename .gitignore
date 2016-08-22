@@ -15,3 +15,7 @@ Thumbs.db
 
 # emacs
 *~
+
+.tags
+.tags1
+node_modules/**
