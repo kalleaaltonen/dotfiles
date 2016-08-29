@@ -56,4 +56,4 @@ export PATH
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh 2> /dev/null # This loads NVM
 
-source .profile
+source ~/.profile
