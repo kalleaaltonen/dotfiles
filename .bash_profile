@@ -56,4 +56,9 @@ export PATH
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh 2> /dev/null # This loads NVM
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 source ~/.profile
+
