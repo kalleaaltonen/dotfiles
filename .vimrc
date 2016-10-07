@@ -1,7 +1,6 @@
 " Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+syntax enable
+colorscheme dracula
 
 " Make Vim more useful
 set nocompatible
@@ -13,6 +12,12 @@ set wildmenu
 set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindent
+
+set shiftwidth=2  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+
 " Optimize for fast terminal connections
 set ttyfast
 " Add the g flag to search/replace by default
@@ -48,9 +53,11 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
+set expandtab
+set tabstop=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -76,10 +83,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
+set number
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -103,4 +107,20 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+	autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
 endif
+
+call pathogen#helptags()
+call pathogen#infect()
+
+let g:gitgutter_realtime = 1
+let g:gitgutter_sign_column_always = 1
+:nmap ; :
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'es5/']
+
+set conceallevel=2
+set concealcursor=nvic
+
+map <C-n> :NERDTreeToggle<CR>
+
